@@ -98,3 +98,11 @@
         )
     )
 )
+
+;; Read-only function to get a profile
+(define-read-only (get-profile (user principal))
+    (match (map-get? profiles user)
+        profile (ok profile)
+        ERR-NOT-FOUND
+    )
+)
