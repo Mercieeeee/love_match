@@ -106,3 +106,11 @@
         ERR-NOT-FOUND
     )
 )
+
+;; Read-only function to get user interests
+(define-read-only (get-user-interests (user principal))
+    (match (map-get? profiles user)
+        profile (ok (get interests profile))
+        ERR-NOT-FOUND
+    )
+)
